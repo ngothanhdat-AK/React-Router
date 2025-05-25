@@ -7,6 +7,8 @@ import Contact from "./pages/Contact/Contact";
 import Layout from "./Layout/Layout";
 import Header from "./pages/Header/Header";
 import Footer from "./pages/Footer/Footer";
+import BlogAll from "./pages/Blog/BlogAll.jsx";
+import BlogDetail from "./pages/Blog/BlogDetail.jsx";
 
 function App() {
   return (
@@ -15,7 +17,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/blog" element={<Blog />} />
+
+          <Route path="/blog" element={<Blog />}>
+            <Route index element={<BlogAll />} />
+            <Route path=":id" element={<BlogDetail />} />
+          </Route>
+
           <Route path="/contact" element={<Contact />} />
         </Route>
         <Route
